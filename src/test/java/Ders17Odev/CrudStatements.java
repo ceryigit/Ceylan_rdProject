@@ -4,6 +4,8 @@ import org.jdbi.v3.core.statement.StatementException;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.OptionalLong;
 
 public class CrudStatements {
     public static void main(String[] args) {
@@ -28,6 +30,15 @@ public class CrudStatements {
                     .mapToMap(String.class)
                     .one().toString();
             System.out.println("Departments tablosuna eklenen kayıt: " + department);
+
+            Optional<Long> updateResult = handle.createUpdate("UPDATE Departments SET nrOfMembers = 12 WHERE dptName = :dptname")
+                    .bind("dptname", "IT")
+                    .executeAndReturnGeneratedKeys()
+                    .mapTo(Long.class)
+                    .findFirst();
+           // updateResult.ifPresent(result -> System.out.println("Kayıt update edildi: " + result));
+            System.out.println("Kayıt update edildi: " + updateResult);
+
 
             int satirSil = handle.createUpdate("DELETE FROM Employee WHERE id = :id")
                     .bind("id", 3)
