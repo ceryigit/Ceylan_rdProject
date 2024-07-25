@@ -36,8 +36,7 @@ public class CrudStatements {
                     .executeAndReturnGeneratedKeys()
                     .mapTo(Long.class)
                     .findFirst();
-           // updateResult.ifPresent(result -> System.out.println("Kayıt update edildi: " + result));
-            System.out.println("Kayıt update edildi: " + updateResult);
+            System.out.println("Kayıt update edildi.");
 
 
             int satirSil = handle.createUpdate("DELETE FROM Employee WHERE id = :id")
