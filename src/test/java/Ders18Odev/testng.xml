@@ -1,0 +1,8 @@
+<suite name="Test Suite">
+    <test name="Test 1">
+        <classes>
+            <class name="MaasTestDataProvider">
+            </class>
+        </classes>
+    </test>
+</suite>
