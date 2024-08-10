@@ -3,6 +3,8 @@
         <classes>
             <class name="MaasTestDataProvider">
             </class>
+            <class name="MaasTest">
+            </class>
         </classes>
     </test>
 </suite>
